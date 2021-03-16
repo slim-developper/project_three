@@ -10,6 +10,7 @@ import useStyles from './styles';
 
 const Navbar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  const [compete, setCompete] = useState(JSON.parse(localStorage.getItem('profile')));
   const dispatch = useDispatch();
   const location = useLocation();
   const history = useHistory();
@@ -23,6 +24,16 @@ const Navbar = () => {
     setUser(null);
   };
 
+  //logout compete
+
+  const logoutComp = () => {
+    dispatch({ type: actionType.LOGOUT });
+
+    history.push('/compete');
+
+    setCompete(null);
+  };
+//user
   useEffect(() => {
     const token = user?.token;
 
@@ -33,6 +44,19 @@ const Navbar = () => {
     }
 
     setUser(JSON.parse(localStorage.getItem('profile')));
+  }, [location]);
+
+  //compete
+  useEffect(() => {
+    const token = compete?.token;
+
+    if (token) {
+      const decodedToken = decode(token);
+
+      if (decodedToken.exp * 1000 < new Date().getTime()) logoutComp();
+    }
+
+    setCompete(JSON.parse(localStorage.getItem('profile')));
   }, [location]);
 
   return (

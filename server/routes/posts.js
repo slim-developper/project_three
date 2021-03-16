@@ -21,4 +21,5 @@ router.patch('/:id/likePost', authComp, likePost);
 //admin
 router.get('/', getPosts);
 router.delete('/:id', authAdmin, deletePost);
+
 export default router;

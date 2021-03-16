@@ -65,6 +65,9 @@ const Navbar = () => {
         <Typography component={Link} to="/" className={classes.heading} variant="h2" align="center">Projects</Typography>
         <img className={classes.image} src={memories} alt="icon" height="60" />
       </div>
+
+
+
       <Toolbar className={classes.toolbar}>
         {user?.result ? (
           <div className={classes.profile}>
@@ -76,6 +79,21 @@ const Navbar = () => {
           <Button component={Link} to="/auth" variant="contained" color="primary">Sign In</Button>
         )}
       </Toolbar>
+      
+      
+      <Toolbar className={classes.toolbar}>
+        {compete?.result ? (
+          <div className={classes.profile}>
+            <Avatar className={classes.purple} alt={compete?.result.name} src={compete?.result.imageUrl}>{compete?.result.name.charAt(0)}</Avatar>
+            <Typography className={classes.userName} variant="h6">{compete?.result.name}</Typography>
+            <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout from compete Interface</Button>
+          </div>
+        ) : (
+          <Button component={Link} to="/compete" variant="contained" color="primary">Sign In as compete</Button>
+        )}
+      </Toolbar>
+
+
     </AppBar>
   );
 };

@@ -33,7 +33,7 @@ const SignUpComp = () => {
     e.preventDefault();
 
     if (isSignup) {
-      dispatch(signup(form, history));
+      dispatch(signupComp(form, history));
     } else {
       dispatch(signinComp(form, history));
     }

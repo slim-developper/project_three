@@ -5,6 +5,10 @@ const userSchema = mongoose.Schema({
   email: { type: String, required: true },
   password: { type: String, required: true },
   id: { type: String },
+  isUser:{
+    type:Boolean,
+    default:true
+    }
 });
 
 export default mongoose.model("User", userSchema);

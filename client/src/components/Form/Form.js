@@ -12,6 +12,8 @@ const Form = ({ currentId, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
+  const compete = JSON.parse(localStorage.getItem('profile'));
+
 
   useEffect(() => {
     if (post) setPostData(post);
@@ -34,6 +36,11 @@ const Form = ({ currentId, setCurrentId }) => {
     }
   };
 
+  
+
+
+console.log(user);
+console.log(compete)
   if (!user?.result?.name) {
     return (
       <Paper className={classes.paper}>
@@ -43,7 +50,7 @@ const Form = ({ currentId, setCurrentId }) => {
       </Paper>
     );
   }
-
+  if (user?.result?.isUser) {
   return (
     <Paper className={classes.paper}>
       <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
@@ -56,7 +63,7 @@ const Form = ({ currentId, setCurrentId }) => {
         <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
       </form>
     </Paper>
-  );
+  )}else  return null;
 };
 
 export default Form;

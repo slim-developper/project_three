@@ -5,7 +5,9 @@ import { getPosts, getPost, createPost, updatePost, likePost, deletePost } from 
 const router = express.Router();
 import auth from "../middleware/auth.js";
 import authComp from "../middleware/authComp.js";
-import authAdmin from "../middleware/authAdmin.js";
+import authAdmin from "../middleware/auth.js";
+
+
 
 //user
 router.get('/', getPosts);

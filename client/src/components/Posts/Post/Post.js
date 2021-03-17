@@ -12,6 +12,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import ThumbUpAltOutlined from "@material-ui/icons/ThumbUpAltOutlined";
 import { useDispatch } from "react-redux";
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import moment from "moment";
 
 import { likePost, deletePost } from "../../../actions/posts";
@@ -33,21 +34,17 @@ const Post = ({ post, setCurrentId }) => {
           &nbsp;
           {post.likes.length > 2
             ? `You and ${post.likes.length - 1} others`
-            : `${post.likes.length} like${post.likes.length > 1 ? "s" : ""}`}
+            : `${post.likes.length} like${post.likes.length > 1 ? "s" : ""}`}&nbsp;
             </div>
-                 <Button variant="contained" color="primary" href="#contained-buttons">
-  Link
-</Button>
+                 <Button component={Link} to="/show" variant="contained" color="primary" href="#contained-buttons"> Show</Button>
         </div>
       ) : (
         <div style={{display:'flex'}}>
           <div>
           <ThumbUpAltOutlined fontSize="small" />
-          &nbsp;{post.likes.length} {post.likes.length === 1 ? "Like" : "Likes"}
+          &nbsp;{post.likes.length} {post.likes.length === 1 ? "Like": "Likes"}&nbsp;
           </div>
-                 <Button variant="contained" color="primary" href="#contained-buttons">
-  Link
-</Button>
+           <Button component={Link} to="/show" variant="contained" color="primary" href="#contained-buttons">Show</Button>
         </div>
         
       );
@@ -57,12 +54,10 @@ const Post = ({ post, setCurrentId }) => {
       <div style={{display:'flex'}}>
       <div>
         <ThumbUpAltOutlined fontSize="small" />
-        &nbsp;Like
+        &nbsp;Like&nbsp;
 
       </div>
-      <Button variant="contained" color="primary" href="#contained-buttons">
-  Link
-</Button>
+      <Button component={Link} to="/show" variant="contained" color="primary" href="#contained-buttons">Show</Button>
       </div>
  
     );

@@ -8,7 +8,10 @@ const userSchema = mongoose.Schema({
   isUser:{
     type:Boolean,
     default:true
-    }
+    },isAdmin:{
+      type:Boolean,
+      default:false,
+      }
 });
 
 export default mongoose.model("User", userSchema);

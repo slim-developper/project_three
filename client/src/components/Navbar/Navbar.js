@@ -74,7 +74,7 @@ const Navbar = () => {
             <Typography className={classes.userName} variant="h6">{user?.result.name}</Typography>
             <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
           </div>):
-          (<div><Button component={Link} to="/auth" variant="contained" color="primary">Sign In as client  </Button>
+          (<div className={classes.profile}><Button component={Link} to="/auth" variant="contained" color="primary">Sign In as client </Button>
        <Button component={Link} to="/compete" variant="contained" color="primary">Sign In as compete</Button></div>)}
       </Toolbar>
       
